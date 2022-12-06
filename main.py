@@ -8,6 +8,7 @@
 #
 #   PyOpenGL, GLFW
 
+# This algorithm uses a greedy approach (QUESTION 2)
 
 import sys, os, math
 from turtle import tracer
@@ -219,12 +220,7 @@ def turn( a, b, c ):
 # modifying the 'nextTri' and 'prevTri' pointers in each triangle.
 
 
-def buildTristrips( triangles ):
-    
-    # [YOUR CODE HERE]
-    #
-    # Increment 'count' every time you *start* a new triStrip.
-    
+def buildTristrips( triangles ):    
 
 #Question 2
     for tri in triangles:
@@ -259,77 +255,6 @@ def buildTristrips( triangles ):
         #Counts number of links
             count += 1
     print( 'Generated %d tristrips' % count )
-
-#Question 3
-    triangles = sorted(triangles, key=lambda tri: len(tri.adjTris)) 
-    #Using the same greedy algorithm as Question 2
-    #Sorted the triangles in increasing order based on the number adjacent sides it has
-    #Meaning the links will start on the edges or the corners 
-    for tri in triangles:
-        if tri.nextTri is None and tri.prevTri is None:
-            current = tri
-            not_trapped = True
-            while not_trapped:
-                not_trapped = False
-                for adj in current.adjTris:
-                    if adj.nextTri is None and adj.prevTri is None:
-                        current.nextTri = adj
-                        adj.prevTri = current
-                        current = adj
-                        not_trapped = True
-                        break
-
-    count = 0
-    for tri in triangles:
-        if tri.nextTri is not None:
-            drawArrow(tri.centroid[0],tri.centroid[1],tri.nextTri.centroid[0], tri.nextTri.centroid[1])
-        else:
-            count += 1
-    print( 'Generated %d tristrips' % count )
-
-#Question 4
-    def recursive(tri):
-    #Recursive function call
-        minimum = 3
-        #Set minimum number of adjacent edges to 3
-        potential = None
-        #Potential triangle to link to
-        countadj = len(tri.adjTris)
-        #Number of adjacent triangles
-        for adjacent in tri.adjTris:
-        #Loop through adjacent triangles
-            if adjacent.nextTri is None and adjacent.prevTri is None: 
-            #Start of new link
-                if countadj <= minimum:
-                #Number of adjacent triangles is less than our minimum, potential link becomes that adjacent triangle and the new minimum becomes that adjacent triangles number of adjacent triangles
-                    potential = adjacent
-                    minimum = countadj
-            elif adjacent.nextTri is not None and adjacent.prevTri is None :
-            #Tail of another link is found, our potential becomes that adjacent triangle
-                potential = adjacent
-        if potential is None: 
-        #No more triangles not belonging to a link
-            return 1 
-        else:
-        #The best potential triangle to link to has been assigned, push the potential to the link and recall the function with the next adjacent triangle (or otherwise known as the potential triangle)
-            tri.nextTri = potential
-            potential.prevTri = tri
-            recursive(potential)
-
-    count = 0
-    for tri in triangles:
-    #Loop through triangles
-        recursive(tri)
-        #Call function with current triangle
-        if tri.nextTri is not None:
-        #Ensures it's not the end of the link
-            drawArrow(tri.centroid[0],tri.centroid[1],tri.nextTri.centroid[0], tri.nextTri.centroid[1])
-        else:
-        #Counts number of links
-            count += 1
-
-    print( 'Generated %d tristrips' % count )
-
 
 # ================================================================
 # ================================================================
