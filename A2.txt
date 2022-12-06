@@ -99,17 +99,3 @@ To submit:
 
 For marking, we will read your code for correctness, clarity, and
 quality, and we will run your code.
-
-#   for each adjacent in currTriangle
-#        if adjacent is not a part of a strip
-#           if adjacent has a smaller adjacent count than our minimum
-#                # select that adjacent as our potential choice and as our new minimum
-#        else if adjacent is a tail of another strip
-#            # traverse that strip
-#            # if its not the head, join the strip with the other strip, return 0
-#        if we don't have a potential choice
-#            # end strip by returning 1
-#        else     
-#            # push adjacent to strip
-#            # call algorithm again, passing in our adjacent
-#       
