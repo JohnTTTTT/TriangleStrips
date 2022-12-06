@@ -1,8 +1,11 @@
 John Turnbull
 20235355
-20jjt
 
-To run my code you will have to comment out two out of the three questions
+You'll need Python 3.4+ and must install these packages:
+PyOpenGL, GLFW
+
+To run different version you will have to comment out two out of the three questions
+Each question shows a different algorithm for completing the task
 
 example (This will run question 4 code):
 
@@ -24,8 +27,11 @@ example (This will run question 4 code):
 ....
 ....
 
+Question 2 uses a Greedy Algorithm
+Question 3 uses a Greedy Algorithm but also implements a sorting function
+Question 4 uses the most efficient algorithm that involves recursion
+
 Comment out the highlighted portion of code you want to run using Ctrl + K + C
 To Uncomment a highlighted portion of code use Ctrl + K + U
 
-Also I was unsure what question 5 meant when they said to remove all the display() calls
-To run my code I used the drawArrow function and I'm going to leave it in but just delete that portion if it interferes with you testing my code
+By default my code is using the most efficient algorithm
