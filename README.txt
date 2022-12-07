@@ -4,34 +4,18 @@ John Turnbull
 You'll need Python 3.4+ and must install these packages:
 PyOpenGL, GLFW
 
-To run different version you will have to comment out two out of the three questions
-Each question shows a different algorithm for completing the task
+main2.py uses a Greedy Algorithm
+main3.py uses a Greedy Algorithm but also implements a sorting function
+main4.py uses the most efficient algorithm that involves recursion
 
-example (This will run question 4 code):
+To run the code use the command line:
 
-#Question 2
-#....
-#....
-#....
-#....
+  python3 main2.py 200
+  
+This will execute the least effective algorithm with the file containing 200 points
 
-#Question 3
-#....
-#....
-#....
-#....
-
-#Question 4
-....
-....
-....
-....
-
-Question 2 uses a Greedy Algorithm
-Question 3 uses a Greedy Algorithm but also implements a sorting function
-Question 4 uses the most efficient algorithm that involves recursion
-
-Comment out the highlighted portion of code you want to run using Ctrl + K + C
-To Uncomment a highlighted portion of code use Ctrl + K + U
-
-By default my code is using the most efficient algorithm
+Another example:
+  
+  python3 main4.py 10000
+  
+ This will execute the most effective algorithm with the file containing 10000 points
